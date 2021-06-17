@@ -39,7 +39,7 @@ const Box = styled.div`
     &::after{
       width:32px;
       height:32px;
-      background: ${Atom.color.gray0};
+      background: ${Atom.color.primary_dark};
       content:" ";
       border: 1px solid #000;
       ${(props)=>props.Value}

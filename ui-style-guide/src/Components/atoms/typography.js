@@ -4,7 +4,7 @@
     variable ? defaultValue : variable;
 
  const header_0 = (color) =>`
-    color: ${handleDefault(color,colors.text)};
+    color: ${handleDefault(color,colors.text_onLight)};
     font-size: 48px;
     line-height: 110%;
     @media (min-width:${breakpoints.mobile}) {
@@ -12,7 +12,7 @@
     }`
 
 const header_1 = (color) =>`
-    color: ${handleDefault(color,colors.text)};
+    color: ${handleDefault(color,colors.text_onLight)};
     font-size: 32px;
     line-height: 120%;
     @media (min-width:${breakpoints.mobile}) {
@@ -20,7 +20,7 @@ const header_1 = (color) =>`
     }`
 
 const header_2 = (color) =>`
-    color: ${handleDefault(color,colors.text)};
+    color: ${handleDefault(color,colors.text_onLight)};
     font-size: 24px;
     line-height: 120%;
 
@@ -29,7 +29,7 @@ const header_2 = (color) =>`
     }
 `
 const header_3 = (color) =>`
-    color: ${handleDefault(color,colors.text)};
+    color: ${handleDefault(color,colors.text_onLight)};
     font-size: 20px;
     line-height: 120%;
     text-transform: uppercase;
@@ -39,7 +39,7 @@ const header_3 = (color) =>`
     }
 `
 const header_4 = (color) =>`
-    color: ${handleDefault(color,colors.text)};
+    color: ${handleDefault(color,colors.text_onLight)};
     font-size: 20px;
     line-height: 120%;
 
@@ -48,7 +48,7 @@ const header_4 = (color) =>`
     }
 `
 const header_5 = (color) =>`
-    color: ${handleDefault(color,colors.text)};
+    color: ${handleDefault(color,colors.text_onLight)};
     color: $color;
     font-size: 18px;
     line-height: 120%;
@@ -58,7 +58,7 @@ const header_5 = (color) =>`
     }
 `
 const paragraph = (color) =>`
-    color: ${handleDefault(color,colors.text)};
+    color: ${handleDefault(color,colors.text_onLight)};
     font-size: 14px;
     line-height: 150%;
 
@@ -67,7 +67,7 @@ const paragraph = (color) =>`
     }
 `
 const paragraph_bold = (color) =>`
-    color: ${handleDefault(color,colors.text)};
+    color: ${handleDefault(color,colors.text_onLight)};
     font-weight: bold;
     font-size: 14px;
     line-height: 150%;
@@ -77,7 +77,7 @@ const paragraph_bold = (color) =>`
     }
 `
 const paragraph_italic = (color) =>`
-    color: ${handleDefault(color,colors.text)};
+    color: ${handleDefault(color,colors.text_onLight)};
     font-style: italic;
     font-size: 14px;
     line-height: 150%;
@@ -87,7 +87,7 @@ const paragraph_italic = (color) =>`
     }
 `
 const paragraph_capitalized = (color) =>`
-    color: ${handleDefault(color,colors.text)};
+    color: ${handleDefault(color,colors.text_onLight)};
     font-size: 14px;
     line-height: 150%;
     text-transform: uppercase;
@@ -97,7 +97,7 @@ const paragraph_capitalized = (color) =>`
     }
 `
 const small = (color) =>`
-    color: ${handleDefault(color,colors.text)};
+    color: ${handleDefault(color,colors.text_onLight)};
     font-size: 12px;
     line-height: 150%;
 
@@ -106,7 +106,7 @@ const small = (color) =>`
     }
 `
 const small_bold = (color) =>`
-    color: ${handleDefault(color,colors.text)};
+    color: ${handleDefault(color,colors.text_onLight)};
     font-weight: bold;
     font-size: 12px;
     line-height: 150%;
@@ -116,7 +116,7 @@ const small_bold = (color) =>`
     }
 `
 const tiny_italic = (color) =>`
-    color: ${handleDefault(color,colors.text)};
+    color: ${handleDefault(color,colors.text_onLight)};
     font-style: italic;
     font-weight: 500;
     font-size: 11px;
@@ -129,7 +129,7 @@ const tiny_italic = (color) =>`
 `
 
 const scratched = (color) =>`
-    color: ${handleDefault(color,colors.text)};
+    color: ${handleDefault(color,colors.text_onLight)};
     font-size: 12px;
     line-height: 150%;
     text-decoration-line: line-through;
