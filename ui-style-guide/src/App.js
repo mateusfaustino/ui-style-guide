@@ -3,7 +3,8 @@ import styled from 'styled-components';
 import Atom from './Components/atoms';
 import atom from './Components/atoms';
 import Grid from './Components/atoms/grid';
-
+import Spacing from './Components/atoms/spacing';
+const spacing = new Spacing(7,'16px','10vw')
 const Title = styled.h3`
   ${Atom.typography.header1}
 `
@@ -14,16 +15,25 @@ const BoxWrapper = styled.div`
   justify-content:center;
   border-bottom:3px solid ${Atom.color.primary};
   width:100%;
-  max-width:500px;
-`
-const Box = styled.div`
+  max-width:${spacing.container};
+  
+  `
+  const Box = styled.div`
   display:flex;
   flex-direction:column;
   align-items:center;
   justify-content:center;
   padding:16px;
   margin:8px;
+  max-width:${spacing.container};
+  ${atom.breakpoint.sm}{
+    max-width:calc(5*(${spacing.cgs}) - ${spacing.gap});
+  }
+  ${atom.breakpoint.md}{
+    max-width:calc(3*(${spacing.cgs}) - ${spacing.gap});
+  }
   &.colors{
+    flex-direction:column;
     width:100%;
     border: 1px solid #000;
     background:${(props)=>props.Value};
@@ -61,7 +71,7 @@ function App() {
       keys.push(property)
       values.push(props.Component[property])
     }
-    console.log(keys)
+    console.log(spacing.cs)
     return(
       <BoxWrapper>{
         
@@ -75,7 +85,8 @@ function App() {
   
   return (
     <Container>
-      <Grid Gap='30px' Margin="100px" Columns={5}/>
+      <Grid Gap={spacing.gap} Margin={spacing.margin} Columns={spacing
+      .columns}/>
       <Title>Colors:</Title>
       <Values className="colors" Component={Atom.color} />
       
