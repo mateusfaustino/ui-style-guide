@@ -2,6 +2,7 @@ import './App.css';
 import styled from 'styled-components';
 import Atom from './Components/atoms';
 import atom from './Components/atoms';
+import Grid from './Components/atoms/grid';
 
 const Title = styled.h3`
   ${Atom.typography.header1}
@@ -74,6 +75,7 @@ function App() {
   
   return (
     <Container>
+      <Grid Gap='30px' Margin="100px" Columns={5}/>
       <Title>Colors:</Title>
       <Values className="colors" Component={Atom.color} />
       
