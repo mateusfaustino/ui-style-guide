@@ -1,7 +1,6 @@
  import breakpoints from "./breakpoints"
  import colors from "./colors"
- const handleDefault = (variable, defaultValue) =>
-    variable ? defaultValue : variable;
+ import { handleDefault } from "../functions"
 
  const header_0 = (color) =>`
     color: ${handleDefault(color,colors.text_onLight)};

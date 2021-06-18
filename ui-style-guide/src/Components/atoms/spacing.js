@@ -14,5 +14,4 @@ export default class Spacing {
         return `calc(100vw - 2*(${this.margin}) )`
     }
 
-
 }

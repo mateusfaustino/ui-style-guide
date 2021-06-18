@@ -5,6 +5,7 @@ import Animations, {animation as animes}from './animations';
 import Borders from './borders';
 import Breakpoints from './breakpoints';
 import background from './backgrounds';
+import Scroll from './scroll';
 
 
 const atom = {
@@ -15,6 +16,7 @@ const atom = {
     border : Borders,
     breakpoint : Breakpoints,
     background : background,
+    scroll: Scroll
 } 
 
 export default atom

@@ -1,10 +1,28 @@
-import './App.css';
-import styled from 'styled-components';
+import styled, {createGlobalStyle } from 'styled-components';
 import Atom from './Components/atoms';
 import atom from './Components/atoms';
 import Grid from './Components/atoms/grid';
 import Spacing from './Components/atoms/spacing';
+
 const spacing = new Spacing(7,'16px','10vw')
+const GlobalStyle = createGlobalStyle`
+  *{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  ${atom.scroll}
+  ${atom.animation}
+  body{
+    background: ${atom.background.main};
+  }
+  li{
+    list-style:none;
+  }
+  a{
+    text-decoration:none;
+  }
+`
 const Title = styled.h3`
   ${Atom.typography.header1}
 `
@@ -26,21 +44,18 @@ const BoxWrapper = styled.div`
   padding:16px;
   margin:8px;
   max-width:${spacing.container};
-  ${atom.breakpoint.sm}{
-    max-width:calc(5*(${spacing.cgs}) - ${spacing.gap});
-  }
+  box-shadow:${atom.shadow.shadow_3dp};
+  
   ${atom.breakpoint.md}{
-    max-width:calc(3*(${spacing.cgs}) - ${spacing.gap});
+    max-width:calc(5*(${spacing.cgs}) - ${spacing.gap});
   }
   &.colors{
     flex-direction:column;
     width:100%;
-    border: 1px solid #000;
     background:${(props)=>props.Value};
   }
   &.backgrounds{
     width:100%;
-    border: 1px solid #000;
     ${(props)=>props.Value}
   }
   &.typografies{
@@ -50,11 +65,13 @@ const BoxWrapper = styled.div`
     &::after{
       width:32px;
       height:32px;
-      background: ${Atom.color.primary_dark};
+      ${atom.background.primary_dark}
       content:" ";
-      border: 1px solid #000;
       ${(props)=>props.Value}
     }
+  }
+  &.shadows{  
+   box-shadow: ${(props)=>props.Value};
   }
 `
 const Container = styled.div`
@@ -73,8 +90,9 @@ function App() {
     }
     console.log(spacing.cs)
     return(
-      <BoxWrapper>{
-        
+      <BoxWrapper>
+        <GlobalStyle/>
+        {
         keys.map((key,index)=>
         <Box className={props.className} key={index} Value={values[index]} >{key}</Box>
         )
@@ -85,8 +103,10 @@ function App() {
   
   return (
     <Container>
-      <Grid Gap={spacing.gap} Margin={spacing.margin} Columns={spacing
-      .columns}/>
+      {
+      //<Grid Gap={spacing.gap} Margin={spacing.margin} Columns={spacing
+      //.columns}/>
+      }
       <Title>Colors:</Title>
       <Values className="colors" Component={Atom.color} />
       
@@ -96,8 +116,11 @@ function App() {
       <Title>Typographies:</Title>
       <Values className="typografies" Component={Atom.typography} />
       
-      <Title>Animations</Title>
+      <Title>Animations:</Title>
       <Values className="animations" Component={Atom.animation} />
+      
+      <Title>Shadows:</Title>
+      <Values className="shadows" Component={Atom.shadow} />
     </Container>
   );
 }

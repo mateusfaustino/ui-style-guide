@@ -1,8 +1,5 @@
 import colors from "./colors"
-
-const handleDefault = (variable, defaultValue) =>
-    variable ? defaultValue : variable;
-
+import { handleDefault } from "../functions"
     
 const primary = (color) => `
    color: ${handleDefault(color, colors.text_onDark )};
