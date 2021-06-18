@@ -1,8 +1,10 @@
 import styled, {createGlobalStyle } from 'styled-components';
 import Atom from './Components/atoms';
 import atom from './Components/atoms';
+import background,{hover} from './Components/atoms/backgrounds';
 import Grid from './Components/atoms/grid';
 import Spacing from './Components/atoms/spacing';
+import Button from './Components/molecules/buttons';
 
 const spacing = new Spacing(7,'16px','10vw')
 const GlobalStyle = createGlobalStyle`
@@ -22,7 +24,13 @@ const GlobalStyle = createGlobalStyle`
   a{
     text-decoration:none;
   }
-`
+  `
+  const Container = styled.div`
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    justify-content:center;
+  `
 const Title = styled.h3`
   ${Atom.typography.header1}
 `
@@ -31,10 +39,10 @@ const BoxWrapper = styled.div`
   flex-direction:column;
   align-items:center;
   justify-content:center;
-  border-bottom:3px solid ${Atom.color.primary};
+  box-shadow:${atom.shadow.shadow_1dp};
   width:100%;
   max-width:${spacing.container};
-  
+  background:${atom.background.surface};
   `
   const Box = styled.div`
   display:flex;
@@ -59,6 +67,7 @@ const BoxWrapper = styled.div`
     ${(props)=>props.Value}
   }
   &.typografies{
+    box-shadow:none;
     ${(props)=>props.Value}
   }
   &.animations{
@@ -74,53 +83,37 @@ const BoxWrapper = styled.div`
    box-shadow: ${(props)=>props.Value};
   }
 `
-const Container = styled.div`
-  display:flex;
-  flex-direction:column;
-  align-items:center;
-  justify-content:center;
-`
 function App() {
-  const Values =(props)=>{
-    const keys =[];
-    const values= []
-    for (var property in props.Component){  
-      keys.push(property)
-      values.push(props.Component[property])
-    }
-    console.log(spacing.cs)
+  const Values = (props) => {
+    const keys = Object.keys(props.Component);
     return(
-      <BoxWrapper>
-        <GlobalStyle/>
-        {
-        keys.map((key,index)=>
-        <Box className={props.className} key={index} Value={values[index]} >{key}</Box>
-        )
-      }
+      <BoxWrapper>  
+        <Title>{props.className}:</Title>
+        {keys.map((key,index) =>
+          <Box className={props.className} key={index} Value={props.Component[key]} >{key}</Box>
+        )}
       </BoxWrapper>
     )
   } 
-  
+   
   return (
     <Container>
+      <GlobalStyle/>
       {
       //<Grid Gap={spacing.gap} Margin={spacing.margin} Columns={spacing
       //.columns}/>
       }
-      <Title>Colors:</Title>
       <Values className="colors" Component={Atom.color} />
       
-      <Title>Backgrounds:</Title>
       <Values className="backgrounds" Component={Atom.background} />
       
-      <Title>Typographies:</Title>
       <Values className="typografies" Component={Atom.typography} />
       
-      <Title>Animations:</Title>
       <Values className="animations" Component={Atom.animation} />
       
-      <Title>Shadows:</Title>
       <Values className="shadows" Component={Atom.shadow} />
+      <Title>buttons</Title>
+      <Button Hover={atom.background.primary_dark} Background={background.primary}>button</Button>
     </Container>
   );
 }

@@ -27,19 +27,26 @@ background-color: ${colors.error};
 `
 
 const success = (color) => `
-   color: ${handleDefault(color, colors.text_onLight)};
+   color: ${handleDefault(color, colors.text_onDark)};
    background-color: ${colors.success};
 `
 
-const background = {
-    primary: primary,
-    primary_light: primary_light,
-    primary_dark: primary_dark,
-    main:main,
-    surface:surface,
-    error: error,
-    success: success,
+const hoverSuccess = (color) => `
+   color: ${handleDefault(color, colors.text_onDark)};
+   background-color: #27ae60;
+`
 
+const background = {
+   primary: primary,
+   primary_light: primary_light,
+   primary_dark: primary_dark,
+   main:main,
+   surface:surface,
+   error: error,
+   success: success,
+}
+export const hover = {
+   sucess:hoverSuccess
 }
 
 export default background

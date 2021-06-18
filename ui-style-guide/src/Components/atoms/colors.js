@@ -4,7 +4,7 @@ const colors = {
     primary_dark: '#004a9f',
 
     error: 'hsl(359.6, 82.1%, 62.7%)',
-    success: 'hsl(164, 75.6%, 46.7%)',
+    success: '#2ecc71',
 
     text_onLight: 'hsl(223.8, 81.3%, 6.3%)',
     text_onDark: '#ffffff'
