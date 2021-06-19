@@ -5,7 +5,13 @@ import background,{hover} from './Components/atoms/backgrounds';
 import Grid from './Components/atoms/grid';
 import Spacing from './Components/atoms/spacing';
 import Button, {OutlinedButton, TextButton} from './Components/molecules/buttons';
-import AppBar from './Components/atoms/appBar';
+import Header from './Components/molecules/Header'
+import {
+  BrowserRouter as Router,
+  Switch,
+  Route,
+  Link
+} from "react-router-dom";
 const spacing = new Spacing(7,'16px','10vw')
 const GlobalStyle = createGlobalStyle`
   *{
@@ -30,6 +36,7 @@ const GlobalStyle = createGlobalStyle`
   flex-direction:column;
   align-items:center;
   justify-content:center;
+  margin-top: 40px;
   `
   const ButtonGroup = styled.div`
     display:flex;
@@ -106,9 +113,12 @@ function App() {
   } 
    
   return (
-    <Container>
+    <Router>
+
       <GlobalStyle/>
-      <AppBar position='sticky' color='primary'>a</AppBar>
+    
+      <Header position='sticky' color='primary'></Header>
+    <Container>
       {
       //<Grid Gap={spacing.gap} Margin={spacing.margin} Columns={spacing
       //.columns}/>
@@ -123,6 +133,7 @@ function App() {
       
       <Values className="shadows" Component={Atom.shadow} />
         <ButtonGroup>
+
           <Title>buttons</Title>
           <Button color='primary'>contained primary</Button>
           <Button color='secondary'>contained secondary</Button>
@@ -131,7 +142,8 @@ function App() {
           <TextButton color='primary'>text primary</TextButton>
           <TextButton color='secondary' >text secondary</TextButton>
         </ButtonGroup>
-      </Container>
+  </Container>
+  </Router>
   );
 }
 

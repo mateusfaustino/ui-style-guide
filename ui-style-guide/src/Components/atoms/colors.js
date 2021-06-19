@@ -1,14 +1,4 @@
-const colors = {
-    primary: '#1675d1',
-    primary_light: '#62a3ff',
-    primary_dark: '#004a9f',
 
-    error: 'hsl(359.6, 82.1%, 62.7%)',
-    success: '#2ecc71',
-
-    text_onLight: 'hsl(223.8, 81.3%, 6.3%)',
-    text_onDark: '#ffffff'
-}
  export const palette = {
     primary: {
         main: '#0277bd',
@@ -43,6 +33,27 @@ const colors = {
         onLightText: '#000',
     }
 }
+const colors = {
+    primary: palette.primary.main,
+    primary_light: palette.primary.light,
+    primary_dark: palette.primary.dark,
+    
+    secondary: palette.secondary.main,
+    secondary_light: palette.secondary.light,
+    secondary_dark: palette.secondary.dark,
+    
+    sucess: palette.sucess.main,
+    sucess_light: palette.sucess.light,
+    sucess_dark: palette.sucess.dark,
+    
+    error: palette.error.main,
+    error_light: palette.error.light,
+    error_dark: palette.error.dark,
 
+    
+
+    text_onLight: 'hsl(223.8, 81.3%, 6.3%)',
+    text_onDark: '#ffffff'
+}
 export default colors;
   
