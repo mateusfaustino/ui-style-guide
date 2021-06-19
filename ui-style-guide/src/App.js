@@ -5,7 +5,7 @@ import background,{hover} from './Components/atoms/backgrounds';
 import Grid from './Components/atoms/grid';
 import Spacing from './Components/atoms/spacing';
 import Button, {OutlinedButton, TextButton} from './Components/molecules/buttons';
-import AppBar from './Components/molecules/appBar';
+import AppBar from './Components/atoms/appBar';
 const spacing = new Spacing(7,'16px','10vw')
 const GlobalStyle = createGlobalStyle`
   *{
@@ -108,6 +108,7 @@ function App() {
   return (
     <Container>
       <GlobalStyle/>
+      <AppBar position='sticky' color='primary'>a</AppBar>
       {
       //<Grid Gap={spacing.gap} Margin={spacing.margin} Columns={spacing
       //.columns}/>
@@ -130,7 +131,6 @@ function App() {
           <TextButton color='primary'>text primary</TextButton>
           <TextButton color='secondary' >text secondary</TextButton>
         </ButtonGroup>
-        <AppBar>a</AppBar>
       </Container>
   );
 }
