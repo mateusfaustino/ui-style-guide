@@ -1,8 +1,8 @@
 export const handleDefault = (variable, defaultValue) =>
     variable ? defaultValue : variable;
 
-    function searchAdress(url,parameters, handleError,handleResolve) {
-        const parameters = handleDefault(parameters,{
+    function searchAdress(url,params, handleError,handleResolve) {
+        const parameters = handleDefault(params,{
             method:'GET',
             mode:'cors',
             cache:'default'
