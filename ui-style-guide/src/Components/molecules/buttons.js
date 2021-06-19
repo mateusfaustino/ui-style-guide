@@ -1,45 +1,28 @@
 import React from 'react'
-import atom from '../atoms'
-import { hover } from '../atoms/backgrounds'
 import MuiButton from '@material-ui/core/Button'
-import {styled} from '@material-ui/core/styles' 
+import {styled} from '@material-ui/core/styles'
+import {palette} from '../atoms/colors'
 
-const StyledButton = styled(MuiButton)({
-
+const StyledTextButton = styled(MuiButton)({
+    // Styles applied to the root element if variant="text".
     '&.MuiButton-text':{
         
     },
     //Styles applied to the root element if variant="text" and color="primary".
     '&.MuiButton-textPrimary':{
-        
+        '&.MuiButton-textSecondary':{
+            color:palette.primary.main,
+            '&:hover':{
+            color:palette.primary.dark,
+            }
+        },    
     },
     //Styles applied to the root element if variant="text" and color="secondary".    
     '&.MuiButton-textSecondary':{
-        
-    },
-    // Styles applied to the root element if variant="outlined".
-    '&.MuiButton-outlined':{
-
-    },
-    //Styles applied to the root element if variant="outlined" and color="primary".
-    '&.MuiButton-outlinedPrimary':{
-    
-    },
-    //Styles applied to the root element if variant="outlined" and color="secondary".
-    '&.MuiButton-outlinedSecondary':{
-
-    },
-    //Styles applied to the root element if variant="contained".
-    '&.MuiButton-contained':{
-
-    },
-    //Styles applied to the root element if variant="contained" and color="primary".
-    '&.MuiButton-containedPrimary':{
-        background:atom.color.primary,
-    },
-    //Styles applied to the root element if variant="contained" and color="secondary".
-    '&.MuiButton-containedSecondary':{
-
+        color:palette.secondary.main,
+        '&:hover':{
+        color:palette.secondary.dark,
+        }
     },
     //Styles applied to the root element if disableElevation={true}.
     '&.MuiButton-disableElevation':{
@@ -65,6 +48,46 @@ const StyledButton = styled(MuiButton)({
     '&.MuiButton-textSizeLarge':{
 
     },
+})
+const StyledOutlinedButton = styled(MuiButton)({
+    // Styles applied to the root element if variant="outlined".
+    '&.MuiButton-outlined':{
+
+    },
+    //Styles applied to the root element if variant="outlined" and color="primary".
+    '&.MuiButton-outlinedPrimary':{
+        color:palette.primary.main,
+        'border-color':palette.primary.main,
+        '&:hover':{
+            color:palette.primary.dark,
+            'border-color':palette.primary.dark,
+        }
+    },
+    //Styles applied to the root element if variant="outlined" and color="secondary".
+    '&.MuiButton-outlinedSecondary':{
+        color:palette.secondary.main,
+        'border-color':palette.secondary.main,
+        '&:hover':{
+            color:palette.secondary.dark,
+            'border-color':palette.secondary.dark,
+        }
+    },
+    //Styles applied to the root element if disableElevation={true}.
+    '&.MuiButton-disableElevation':{
+
+    },
+    //	Pseudo-class applied to the ButtonBase root element if the button is keyboard focused.
+    '&.Mui-focusVisible':{
+
+    },
+    //Pseudo-class applied to the root element if disabled={true}
+    '&.Mui-disabled':{
+
+    },
+    //Styles applied to the root element if color="inherit".
+    '&.MuiButton-colorInherit':{
+
+    },
     //Styles applied to the root element if size="small" and variant="outlined".
     '&.MuiButton-outlinedSizeSmall':{
 
@@ -73,6 +96,50 @@ const StyledButton = styled(MuiButton)({
     '&.MuiButton-outlinedSizeLarge':{
 
     },
+})
+const StyledContainedButton = styled(MuiButton)({
+
+
+    //Styles applied to the root element if variant="contained".
+    '&.MuiButton-contained':{
+
+    },
+    //Styles applied to the root element if variant="contained" and color="primary".
+    '&.MuiButton-containedPrimary':{
+        background:palette.primary.main,
+        color:palette.primary.onMainText,
+        '&:hover':{
+            background:palette.primary.dark,
+            color:palette.primary.onDarkText,
+        }
+    },
+    //Styles applied to the root element if variant="contained" and color="secondary".
+    '&.MuiButton-containedSecondary':{
+        background:palette.secondary.main,
+        color:palette.secondary.onMainText,
+        '&:hover':{
+            background:palette.secondary.dark,
+            color:palette.secondary.onDarkText,
+        }
+    },
+    //Styles applied to the root element if disableElevation={true}.
+    '&.MuiButton-disableElevation':{
+
+    },
+    //	Pseudo-class applied to the ButtonBase root element if the button is keyboard focused.
+    '&.Mui-focusVisible':{
+
+    },
+    //Pseudo-class applied to the root element if disabled={true}
+    '&.Mui-disabled':{
+
+    },
+    //Styles applied to the root element if color="inherit".
+    '&.MuiButton-colorInherit':{
+
+    },
+    
+    
     //Styles applied to the root element if size="small" and variant="contained".
     '&.MuiButton-containedSizeSmall':{
 
@@ -114,19 +181,44 @@ const StyledButton = styled(MuiButton)({
 
     },
 })
-const Button = (props)=>{
+const ContainedButton = (props)=>{
     return(
-        <StyledButton 
-            startIcon={''}
-            endIcon={''}
-            variant='text'
-            disabled={false}
-            color='primary'
-            size='large'
+        <StyledContainedButton variant='contained'
+            startIcon={props.startIcon}
+            endIcon={props.endIcon}
+            disabled={props.disabled}
+            color={props.color?props.color:'primary'}
+            size={props.size?props.size:'medium'}
         >
             {props.children}
-        </StyledButton>
+        </StyledContainedButton>
+    )
+} 
+export const OutlinedButton = (props)=>{
+    return(
+        <StyledOutlinedButton variant='outlined'
+            startIcon={props.startIcon}
+            endIcon={props.endIcon}
+            disabled={props.disabled}
+            color={props.color?props.color:'primary'}
+            size={props.size?props.size:'medium'}
+        >
+            {props.children}
+        </StyledOutlinedButton>
+    )
+} 
+export const TextButton = (props)=>{
+    return(
+        <StyledTextButton variant='text'
+            startIcon={props.startIcon}
+            endIcon={props.endIcon}
+            disabled={props.disabled}
+            color={props.color?props.color:'primary'}
+            size={props.size?props.size:'medium'}
+        >
+            {props.children}
+        </StyledTextButton>
     )
 } 
 
-export default Button
+export default ContainedButton

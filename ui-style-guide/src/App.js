@@ -4,8 +4,8 @@ import atom from './Components/atoms';
 import background,{hover} from './Components/atoms/backgrounds';
 import Grid from './Components/atoms/grid';
 import Spacing from './Components/atoms/spacing';
-import Button from './Components/molecules/buttons';
-
+import Button, {OutlinedButton, TextButton} from './Components/molecules/buttons';
+import AppBar from './Components/molecules/appBar';
 const spacing = new Spacing(7,'16px','10vw')
 const GlobalStyle = createGlobalStyle`
   *{
@@ -26,12 +26,21 @@ const GlobalStyle = createGlobalStyle`
   }
   `
   const Container = styled.div`
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  justify-content:center;
+  `
+  const ButtonGroup = styled.div`
     display:flex;
     flex-direction:column;
     align-items:center;
     justify-content:center;
+    button{
+      margin-bottom:8px;
+    }
   `
-const Title = styled.h3`
+  const Title = styled.h3`
   ${Atom.typography.header1}
 `
 const BoxWrapper = styled.div`
@@ -112,9 +121,17 @@ function App() {
       <Values className="animations" Component={Atom.animation} />
       
       <Values className="shadows" Component={Atom.shadow} />
-      <Title>buttons</Title>
-      <Button Hover={atom.background.primary_dark} Background={background.primary}>button</Button>
-    </Container>
+        <ButtonGroup>
+          <Title>buttons</Title>
+          <Button color='primary'>contained primary</Button>
+          <Button color='secondary'>contained secondary</Button>
+          <OutlinedButton color='primary' > outlined primary</OutlinedButton>
+          <OutlinedButton color='secondary' > outlined secondary</OutlinedButton>
+          <TextButton color='primary'>text primary</TextButton>
+          <TextButton color='secondary' >text secondary</TextButton>
+        </ButtonGroup>
+        <AppBar>a</AppBar>
+      </Container>
   );
 }
 
